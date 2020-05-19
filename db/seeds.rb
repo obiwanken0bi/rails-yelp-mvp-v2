@@ -6,7 +6,7 @@ puts "Creating 5 restaurants..."
   restaurant = Restaurant.create!(
     name: Faker::Games::Zelda.unique.game,
     address: Faker::Address.unique.full_address,
-    phone_number: Faker::PhoneNumber.unique.phone_number_with_country_code,
+    phone_number: Faker::PhoneNumber.unique.cell_phone,
     category: ["chinese", "italian", "japanese", "french", "belgian"].sample
   )
   puts "#{i + 1} - [#{restaurant.category}] #{restaurant.name} (#{restaurant.address})"

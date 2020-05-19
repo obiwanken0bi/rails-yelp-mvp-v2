@@ -1,0 +1,11 @@
+<h1><%= @restaurant.name %></h1>
+
+<h3><%= @restaurant.category %></h3>
+
+<p><i class="fas fa-mobile-alt"></i> <%= @restaurant.phone_number %></p>
+
+<p><i class="fas fa-map-marker-alt"></i> <%= @restaurant.address %></p>
+
+<%= link_to restaurants_path do %>
+  <p><i class="fas fa-undo-alt"></i> Back to list</p>
+<% end %>
