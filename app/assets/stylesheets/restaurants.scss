@@ -1,3 +1,13 @@
 // Place all the styles related to the restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+h2, .restaurant-infos {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.back-link p, .no-reviews {
+  margin-top: 16px;
+  text-align: center;
+}

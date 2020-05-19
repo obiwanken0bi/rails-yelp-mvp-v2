@@ -1,29 +1,38 @@
-<h1><%= @restaurant.name %></h1>
+<h2><%= @restaurant.name %></h2>
 
-<h3><%= @restaurant.category %></h3>
+<div class="restaurant-infos">
+  <p><i class="fas fa-utensils"></i> <%= @restaurant.category %></p>
 
-<p><i class="fas fa-mobile-alt"></i> <%= @restaurant.phone_number %></p>
+  <p><i class="fas fa-mobile-alt"></i> <%= @restaurant.phone_number %></p>
 
-<p><i class="fas fa-map-marker-alt"></i> <%= @restaurant.address %></p>
+  <p><i class="fas fa-map-marker-alt"></i> <%= @restaurant.address %></p>
+</div>
 
-<h3>Reviews</h3>
+<div class="reviews">
+  <div class="d-flex align-items-center justify-content-center">
+    <h3 class="mr-4">Reviews</h3>
+    <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: "mb-1" %>
+  </div>
 
-<ul class="list-group">
-  <% @restaurant.reviews.each do |review| %>
-    <li class="list-group-item">
-      <% review.rating.times do %>
-        <i class="fas fa-star"></i>
+  <% if @restaurant.reviews.empty? %>
+    <p class="no-reviews"><em>There are no reviews yet. Feel free to leave one!</em></p>
+  <% else %>
+    <ul class="list-group">
+      <% @restaurant.reviews.each do |review| %>
+        <li class="list-group-item">
+          <% review.rating.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+          - <%= review.content %>
+        </li>
       <% end %>
-      <% (5 - review.rating).times do %>
-        <i class="far fa-star"></i>
-      <% end %>
-      - <%= review.content %>
-    </li>
+    </ul>
   <% end %>
-</ul>
+</div>
 
-<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
-
-<%= link_to restaurants_path do %>
+<%= link_to restaurants_path, class: "back-link" do %>
   <p><i class="fas fa-undo-alt"></i> Back to list</p>
 <% end %>

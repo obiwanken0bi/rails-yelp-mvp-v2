@@ -1,11 +1,13 @@
+<h2>New restaurant</h2>
+
 <%= simple_form_for(@restaurant) do |f| %>
   <%= f.input :name %>
   <%= f.input :address %>
   <%= f.input :phone_number %>
   <%= f.input :category, collection: ["chinese", "italian", "japanese", "french", "belgian"] %>
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-primary" %>
 <% end %>
 
-<%= link_to restaurants_path do %>
+<%= link_to restaurants_path, class: "back-link" do %>
   <p><i class="fas fa-undo-alt"></i> Back to list</p>
 <% end %>

@@ -11,3 +11,16 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "restaurants";
+@import "reviews";
+
+a:focus {
+  outline: none;
+}
+
+.simple_form {
+  input[type='submit'] {
+    display: block;
+    margin: auto;
+  }
+}
