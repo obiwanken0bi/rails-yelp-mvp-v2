@@ -6,6 +6,24 @@
 
 <p><i class="fas fa-map-marker-alt"></i> <%= @restaurant.address %></p>
 
+<h3>Reviews</h3>
+
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item">
+      <% review.rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+      <% (5 - review.rating).times do %>
+        <i class="far fa-star"></i>
+      <% end %>
+      - <%= review.content %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
+
 <%= link_to restaurants_path do %>
   <p><i class="fas fa-undo-alt"></i> Back to list</p>
 <% end %>
